@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Booking Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body class="bg-light text-center">
+    <div class="container mt-5">
+        <h1 class="mb-4">Welcome to the St. Ann's College Room Reservation System</h1>
+
+        {% if 'username' in session %}
+            <p>Logged in as: {{ session['username'] }}</p>
+            <a href="{{ url_for('reserve') }}" class="btn btn-primary">Reserve a Room</a>
+            <a href="{{ url_for('view_bookings') }}" class="btn btn-secondary">View Bookings</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+        {% endif %}
+    </div>
+
+    <div>
+        <img src="https://images.shiksha.com/mediadata/images/1474438333php5DpXMh.png" width="50%">
+    </div>
+</body>
+</html>
